@@ -1,0 +1,33 @@
+Docker File 
+
+Creata a file name as Dockerfile
+---------------------------------
+
+touch Dockerfile
+
+vi Dockerfile
+
+FROM ubuntu
+MAINTAINER becomedevops99@gmail.com
+RUN apt-get update -y
+RUN apt-get install git -y
+RUN apt-get install curl -y
+CMD ["echo", "Hello world"]
+
+To build a docker file
+------------------------------
+
+docker build -t image_name .
+
+To tag docker image
+----------------------
+
+docker tag imagename:tag username/imagename:tag
+
+To login to docker registry/dockerhub
+-------------------------------------
+docker login
+
+To push image to docker hub
+----------------------------
+docker push username/imagename:tag
