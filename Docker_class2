@@ -31,3 +31,10 @@ docker login
 To push image to docker hub
 ----------------------------
 docker push username/imagename:tag
+
+
+
+
+
+
+
