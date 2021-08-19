@@ -1,0 +1,41 @@
+Docker - its an open source platform for managing and running containers
+
+
+ - Container RUN time
+
+Docker
+RKT
+Containerd - kubernetes is using containerd run time
+
+
+docker hub ---- docker images 
+
+-----------------------------
+Installation of docker 
+
+
+yum install docker 
+
+systemctl status docker
+systemctl start docker
+
+docker pull ubuntu
+
+docker run -it ubuntu 
+
+cat /etc/os-release
+
+exit  - comes out of container by exiting the container
+-------------------------------------------------
+
+docker pull centos
+
+docker run -it --name container-centos centos
+
+cat /etc/os-release
+
+
+
+ctrl P + ctrl q -- to come out of the container without exiting container
+
+
