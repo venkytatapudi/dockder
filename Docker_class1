@@ -1,0 +1,100 @@
+Docker - its an open source platform for managing and running containers
+
+
+ - Container RUN time
+
+Docker
+RKT
+Containerd - kubernetes is using containerd run time
+
+
+docker hub ---- docker images 
+
+-----------------------------
+Installation of docker 
+
+
+yum install docker 
+
+systemctl status docker
+systemctl start docker
+
+docker pull ubuntu
+
+docker run -it ubuntu 
+
+cat /etc/os-release
+
+exit  - comes out of container by exiting the container
+-------------------------------------------------
+
+docker pull centos
+
+docker run -it --name container-centos centos
+
+cat /etc/os-release
+
+
+
+ctrl P + ctrl q -- to come out of the container without exiting container
+
+------------------------------------------------------------------------
+
+Docker commands
+
+ docker images
+  166  docker ps
+  167  docker ps -a
+  168  docker stop 776b8cc25749
+  169  docker ps
+  170  docker ps
+  171  docker ps -a
+  172  docker run -it --name centos1 centos
+  173  ls
+  174  docker ps
+  175  docker run -it --name centos2 centos
+  176  docker ps
+  177  docker stop d3
+  178  docker ps -a
+  179  docker ps
+  180  docker rm fd
+  181  docker ps
+  182  docker ps -a
+  183  docker rm d3 77
+  184  docker ps -a
+  185  history
+  186  docker images
+  187  docker pull ubuntu
+  188  docker rmi ubuntu
+  189  docker images
+  190  docker pull ubuntu
+  191  clear
+  192  ls
+  193  ls
+  194  yum install docker
+  195  docker --version
+  196  systemctl docker status
+  197  systemctl status docker
+  198  systemctl start docker
+  199  systemctl status docker
+  200  ls
+  201  ls
+  202  which docker
+  203  docker info
+  204  docker pull ubuntu
+  205  docker images
+  206  docker run -it ubuntu
+  207  docker images
+  208  docker ps
+  209  docker ps -a
+  210  docker pull centos
+  211  docker images
+  212  docker run -it --name centos_container centos
+  213  ld
+  214  ls
+  215  docker ps
+  216  ls
+  217  docker ps
+  218  docker inspect 66160ee793f5
+
+
