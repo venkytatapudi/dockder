@@ -1,0 +1,170 @@
+
+in simple terms volume can be referred as  directory
+inside the container
+
+
+we can access the volume after stopping the container as well
+
+volume will be created in one container and can be accessed
+by other containers
+
+you can define the volume to a container while you're
+creating the container
+
+
+a volume can be shared across any number of containers
+
+when you create a image out of a running container, and when container is created out of it, the volume is avialble in newly created container
+
+
+Benefits of volumes
+---------------------
+
+Decoupling container from storage
+
+Share volumes among different containers
+
+Attach volumes to containers
+
+on deleting container volume doesnt get deleted
+
+
+FROM ubuntu
+VOLUME ["/myvolume"]
+
+docker build -t imagename .
+
+create container out of the image
+
+docker run -it --name container2 --priveldged=true --volumes-from container1 ubuntu /bin/bash
+
+
+now after creating container2(new)
+myvolume1 is visible whatever you
+can do in volume
+
+touch /myvolume1/samplefile
+
+docker start container1
+
+docker attach container1
+
+ls /myvolume1
+-------------------------------
+while creating a container itself if you
+want to attach the volume
+
+docker run -it --name cont-name
+-v /volume ubuntu /bin/bash
+we are telling in the root directory
+create a directory as volume2
+
+
+
+docker run -it --name cont4
+--priveledged=true --volumes-from cont-name
+ ubuntu /bin/bash
+
+
+
+
+
+
+
+
+
+
+
+
+
+Docker volumes
+------------------------
+anything  data that is put in volume, can be shared to other container
+and by sharing the volume
+
+
+
+
+
+
+The data is no longer available when the the container 
+dies, using docker volumes we can persist data even after contianer
+dies
+
+with the volumes we can persist the data
+even after the container dies
+
+when the container dies, the volumes are untouched
+
+
+* Normal Volumes
+
+* Bind Volumes
+
+* Anonymous volumes
+
+
+all data created in temp layer is deleted 
+why docker volumes are so important
+-------------------------------------
+
+docker run -d --name mysql -e "MYSQL_ROOT_PASSWORD=12345678"
+mysql:8
+
+docker ps
+
+docker exec -it container-id bash
+
+
+mysql -u root -p12345668
+
+show databases;
+
+create database prod_db;
+
+show databases;
+
+save/ persist data 
+
+docker volumes ---->
+
+
+------------------------------------------------------------------------------
+--> a running container conent can be modified.
+
+-->as storage of docker is ephermal by default, its lost
+after restart
+
+--> Any modifications are done to a running container are
+written to read/writable filesystem layer by default that is
+removed when the container is stopped.
+
+R/W FILE system LAYER should not be used for persistent storage, as it doest perform well
+
+-->Docker keeps ephermal storage for sometime after container is stopped
+making it easier to troubleshoot based on information logs
+
+
+persistent storage can be offered by using a host directory
+
+the container will bind mount to this host directory to write and access 
+persistent data
+
+----------------------------------
+
+mkdir -p /var/local/mysql
+chown -R 27:27 /var/local/mysql
+docker pull mariadb
+
+docker run --name mariadb:latest -d -v /var/local/mysql:/var/lib/mysql
+-e MYSQL_USER=user -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=addresses -e MYSQL_ROOT_PASSWORD=password mariadb
+
+
+ls -l /var/local/mysql
+
+
+docker exec -it mariadb /bin/bash
+
+ls -l /var/lib/mysql
+
+
