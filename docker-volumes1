@@ -36,7 +36,7 @@ docker build -t imagename .
 
 create container out of the image
 
-docker run -it --name container2 --priveldged=true --volumes-from container1 ubuntu /bin/bash
+docker run -it --name container2 --privileged=true --volumes-from container1 ubuntu /bin/bash
 
 
 now after creating container2(new)
