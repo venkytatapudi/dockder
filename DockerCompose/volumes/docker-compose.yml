@@ -1,0 +1,11 @@
+version: '3'
+services:
+   nginx:
+      container_name: nginx-con8nr
+      ports:
+        - "80:80"
+      image:nginx:alpine 
+      volumes:
+        - my-vol:/app
+volumes:
+     my-vol:
